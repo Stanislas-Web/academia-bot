@@ -64,7 +64,7 @@ async function Process(textUser, number) {
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: 'https://api-transacademia-9ab58fcf01ca.herokuapp.com/api/v1/transacademia',
+            url: 'http://68.183.30.146/api/v1/transacademia',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -146,7 +146,7 @@ async function Process(textUser, number) {
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: 'https://api-transacademia-9ab58fcf01ca.herokuapp.com/api/v1/transacademiastdtac',
+            url: 'http://68.183.30.146/api/v1/transacademiastdtac',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -190,7 +190,7 @@ async function Process(textUser, number) {
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: 'https://api-transacademia-9ab58fcf01ca.herokuapp.com/api/v1/transacademiastdtac',
+            url: 'http://68.183.30.146/api/v1/transacademiastdtac',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -236,7 +236,7 @@ async function Process(textUser, number) {
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: 'https://api-transacademia-9ab58fcf01ca.herokuapp.com/api/v1/transacademiastdtac',
+            url: 'http://68.183.30.146/api/v1/transacademiastdtac',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -280,7 +280,7 @@ async function Process(textUser, number) {
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: 'https://api-transacademia-9ab58fcf01ca.herokuapp.com/api/v1/transacademiastdtac',
+            url: 'http://68.183.30.146/api/v1/transacademiastdtac',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -327,7 +327,7 @@ async function Process(textUser, number) {
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: 'https://api-transacademia-9ab58fcf01ca.herokuapp.com/api/v1/transacademiastdtac',
+            url: 'http://68.183.30.146/api/v1/transacademiastdtac',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -371,7 +371,7 @@ async function Process(textUser, number) {
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: 'https://api-transacademia-9ab58fcf01ca.herokuapp.com/api/v1/transacademiastdtac',
+            url: 'http://68.183.30.146/api/v1/transacademiastdtac',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -418,7 +418,7 @@ async function Process(textUser, number) {
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: 'https://api-transacademia-9ab58fcf01ca.herokuapp.com/api/v1/transacademiastdtac',
+            url: 'http://68.183.30.146/api/v1/transacademiastdtac',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -462,7 +462,7 @@ async function Process(textUser, number) {
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: 'https://api-transacademia-9ab58fcf01ca.herokuapp.com/api/v1/transacademiastdtac',
+            url: 'http://68.183.30.146/api/v1/transacademiastdtac',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -514,7 +514,7 @@ async function Process(textUser, number) {
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: 'https://api-transacademia-9ab58fcf01ca.herokuapp.com/api/v1/transacademiaupdate',
+            url: 'http://68.183.30.146/api/v1/transacademiaupdate',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -573,7 +573,7 @@ async function Process(textUser, number) {
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: 'https://api-transacademia-9ab58fcf01ca.herokuapp.com/api/v1/transacademiaupdate',
+            url: 'http://68.183.30.146/api/v1/transacademiaupdate',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -639,7 +639,7 @@ async function Process(textUser, number) {
             let config = {
                 method: 'post',
                 maxBodyLength: Infinity,
-                url: 'https://api-transacademia-9ab58fcf01ca.herokuapp.com/api/v1/transacademiaupdate',
+                url: 'http://68.183.30.146/api/v1/transacademiaupdate',
                 headers: {
                     'Content-Type': 'application/json'
                 },
