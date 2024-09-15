@@ -565,6 +565,19 @@ function SampleImageDescription(number){
     return data;
 }
 
+function SampleQrCode(number, stdTac){
+    const data = JSON.stringify({
+        "messaging_product": "whatsapp",
+        "to": number,
+        "type": "image",  
+        "image": {
+            "link": "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+stdTac,
+            "caption":"Votre Qr Code"
+        }        
+    });
+    return data;
+}
+
 function MessageApropoEtudiant(number) {
     let text = "Conformément aux dispositions des articles 6 alinéa 3 et 26 du Décret n°22/12 du 25 mars 2022 portant Création et Statuts de l’Etablissement Public dénommé Transport Académique, en sigle Trans-Academia. Il a plu au Président de la république Monsieur *Félix Antoine TSHISEKEDI TSHILOMBO* de doter aux étudiants un moyen de transports pour faciliter leur déplacement. Le dit établissement public sera doté d'une personnalité juridique et va jouir de son autonomie administrative et financière dénommé 'Transport Académique' en abrégé 'Trans Academia'.Cet établissement a pour objet le transport en commun des étudiants des institutions d'enseignement supérieur et universitaire de la République Démocratique du Congo à des tarifs préférentiels.\n\nhttps://trans-academia.cd/"
     const data = JSON.stringify({
@@ -792,5 +805,6 @@ MessageApropoTacInterUrbain,
 MessageApropoTacKelasi,
 MessagePaymentQuestion,
 MessageApropoEtudiantInscription,
-ListUniversite
+ListUniversite,
+SampleQrCode
 };
