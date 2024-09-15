@@ -119,6 +119,9 @@ async function Process(textUser, number) {
             const modeImage = whatsappModel.SampleQrCode(number, stdtac);
             whatsappService.SendMessageWhatsApp(modeImage);
 
+            const modelAgentMessage1 = whatsappModel.MessageText("Votre login est : \nNuméro : " + number.slice(3) + "\nMot de passe: *Trans@106*", number);
+            models.push(modelAgentMessage1);
+
            })
            .catch((error) => {
                console.log(error);
