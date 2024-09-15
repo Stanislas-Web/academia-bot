@@ -483,18 +483,18 @@ function ListUniversite(number){
                     "id": "001",
                     "title": "UNIKIN"
                   },
-                  {
-                    "id": "002",
-                    "title": "UPN"
-                  },
-                  {
-                    "id": "003",
-                    "title": "UPC"
-                  },
-                  {
-                    "id": "004",
-                    "title": "UCC"
-                  },
+                //   {
+                //     "id": "002",
+                //     "title": "UPN"
+                //   },
+                //   {
+                //     "id": "003",
+                //     "title": "UPC"
+                //   },
+                //   {
+                //     "id": "004",
+                //     "title": "UCC"
+                //   },
                   
                 ]
               }

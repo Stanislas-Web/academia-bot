@@ -97,7 +97,7 @@ async function Process(textUser, number) {
         let dataPost = JSON.stringify({
            phoneWhatsapp: number,
            phone: number,
-           nomComplet: text.trim(),
+           nomComplet: textUser.trim(),
            universite:"UNIKIN"
        });
 
