@@ -83,9 +83,6 @@ async function Process(textUser, number) {
             });
 
 
-
-
-
     } else if (textUser.toLowerCase().includes("inscription")) {
 
 
@@ -124,6 +121,13 @@ async function Process(textUser, number) {
                 const modelAgentMessage1 = whatsappModel.MessageText("Votre login est : \nNuméro : " + number.slice(3) + "\nMot de passe: *Trans@106*", number);
                 whatsappService.SendMessageWhatsApp(modelAgentMessage1);
 
+                const modelAgentMessage2 = whatsappModel.MessageText("Télécharger l'application :\nAndroid: https://play.google.com/store/apps/details?id=com.trans.academia\nIOS: https://apps.apple.com/ci/app/trans-academia/id6447296971  ", number);
+                whatsappService.SendMessageWhatsApp(modelAgentMessage2);
+
+                
+
+                
+
             })
             .catch((error) => {
                 console.log(error);
@@ -134,45 +138,8 @@ async function Process(textUser, number) {
         const modelAgentMessage1 = whatsappModel.MessageText("Veuillez renseigner votre nom complet (nom postnom prénom)", number);
         models.push(modelAgentMessage1);
 
-        // const modelAgentMessage2 = whatsappModel.MessageText("Je vais transférer votre chat à un collègue disponible pour vous aider au mieux..", number);
-        // models.push(modelAgentMessage2);
-
-        // const modelAgentMessage3 = whatsappModel.MessageText(`Bonjour, veuillez contacter ce numéro (+${number}) pour une prise en charge immédiate pour son inscription, \nPour *${textUser}*.`, "243822167485");
-        // models.push(modelAgentMessage3);
-
     }
 
-    // else if (textUser.toLowerCase().includes("upn")) {
-    //     const modelAgentMessage1 = whatsappModel.MessageText("Votre demande est en cours de traitement. Un agent vous contactera bientôt. 🕜", number);
-    //     models.push(modelAgentMessage1);
-
-    //     const modelAgentMessage2 = whatsappModel.MessageText("Je vais transférer votre chat à un collègue disponible pour vous aider au mieux..", number);
-    //     models.push(modelAgentMessage2);
-
-    //     const modelAgentMessage3 = whatsappModel.MessageText(`Bonjour, veuillez contacter ce numéro (+${number}) pour une prise en charge immédiate pour son inscription, \nPour *${textUser}*.`, "243823010561");
-    //     models.push(modelAgentMessage3);
-
-    // }    else if (textUser.toLowerCase().includes("upc")) {
-    //     const modelAgentMessage1 = whatsappModel.MessageText("Votre demande est en cours de traitement. Un agent vous contactera bientôt. 🕜", number);
-    //     models.push(modelAgentMessage1);
-
-    //     const modelAgentMessage2 = whatsappModel.MessageText("Je vais transférer votre chat à un collègue disponible pour vous aider au mieux..", number);
-    //     models.push(modelAgentMessage2);
-
-    //     const modelAgentMessage3 = whatsappModel.MessageText(`Bonjour, veuillez contacter ce numéro (+${number}) pour une prise en charge immédiate pour son inscription, \nPour *${textUser}*.`, "243823010561");
-    //     models.push(modelAgentMessage3);
-
-    // }else if (textUser.toLowerCase().includes("ucc")) {
-    //     const modelAgentMessage1 = whatsappModel.MessageText("Votre demande est en cours de traitement. Un agent vous contactera bientôt. 🕜", number);
-    //     models.push(modelAgentMessage1);
-
-    //     const modelAgentMessage2 = whatsappModel.MessageText("Je vais transférer votre chat à un collègue disponible pour vous aider au mieux..", number);
-    //     models.push(modelAgentMessage2);
-
-    //     const modelAgentMessage3 = whatsappModel.MessageText(`Bonjour, veuillez contacter ce numéro (+${number}) pour une prise en charge immédiate pour son inscription, \nPour *${textUser}*.`, "243822167485");
-    //     models.push(modelAgentMessage3);
-
-    // }
 
     // case abonnement
     else if (textUser.includes("78 000 FC")) {
