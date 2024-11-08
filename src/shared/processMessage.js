@@ -92,40 +92,42 @@ async function Process(textUser, number) {
         const modeUniv = whatsappModel.ListUniversite(number);
         whatsappService.SendMessageWhatsApp(modeUniv);
 
-    } else if ((textUser.toLowerCase().split(' ').length == 2 && (!textUser.toLowerCase().includes("fc") || !textUser.toLowerCase().includes("$"))) || ( textUser.toLowerCase().split(' ').length == 3 && (!textUser.toLowerCase().includes("fc") || !textUser.toLowerCase().includes("$")))) {
+    } else if ((textUser.toLowerCase().split(' ').length == 2 || textUser.toLowerCase().split(' ').length == 3) &&
+        !textUser.toLowerCase().includes("fc") &&
+        !textUser.toLowerCase().includes("$")) {
 
         let dataPost = JSON.stringify({
-           phoneWhatsapp: number,
-           phone: number,
-           nomComplet: textUser.trim(),
-           universite:"UNIKIN"
-       });
+            phoneWhatsapp: number,
+            phone: number,
+            nomComplet: textUser.trim(),
+            universite: "UNIKIN"
+        });
 
-       let config = {
-           method: 'post',
-           maxBodyLength: Infinity,
-           url: 'http://68.183.30.146/api/v1/createAccount',
-           headers: {
-               'Content-Type': 'application/json'
-           },
-           data: dataPost
-       };
+        let config = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: 'http://68.183.30.146/api/v1/createAccount',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: dataPost
+        };
 
-       axios.request(config)
-           .then(async (response) => {
+        axios.request(config)
+            .then(async (response) => {
 
-            const stdtac = "STDTAC202306080102QSPFOK52011771";
+                const stdtac = "STDTAC202306080102QSPFOK52011771";
 
-            const modeImage = whatsappModel.SampleQrCode(number, stdtac);
-            whatsappService.SendMessageWhatsApp(modeImage);
+                const modeImage = whatsappModel.SampleQrCode(number, stdtac);
+                whatsappService.SendMessageWhatsApp(modeImage);
 
-            const modelAgentMessage1 = whatsappModel.MessageText("Votre login est : \nNuméro : " + number.slice(3) + "\nMot de passe: *Trans@106*", number);
-            whatsappService.SendMessageWhatsApp(modelAgentMessage1);
+                const modelAgentMessage1 = whatsappModel.MessageText("Votre login est : \nNuméro : " + number.slice(3) + "\nMot de passe: *Trans@106*", number);
+                whatsappService.SendMessageWhatsApp(modelAgentMessage1);
 
-           })
-           .catch((error) => {
-               console.log(error);
-           });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
 
     } else if (textUser.toLowerCase().includes("unikin")) {
 
