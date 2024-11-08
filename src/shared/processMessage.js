@@ -92,7 +92,7 @@ async function Process(textUser, number) {
         const modeUniv = whatsappModel.ListUniversite(number);
         whatsappService.SendMessageWhatsApp(modeUniv);
 
-    } else if (textUser.toLowerCase().split(' ').length == 2 || textUser.toLowerCase().split(' ').length == 3) {
+    } else if ((textUser.toLowerCase().split(' ').length == 2 && (!textUser.toLowerCase().includes("fc") || !textUser.toLowerCase().includes("$"))) || ( textUser.toLowerCase().split(' ').length == 3 && (!textUser.toLowerCase().includes("fc") || !textUser.toLowerCase().includes("$")))) {
 
         let dataPost = JSON.stringify({
            phoneWhatsapp: number,
