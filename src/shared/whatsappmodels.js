@@ -558,7 +558,7 @@ function SampleImageDescription(number){
         "to": number,
         "type": "image",  
         "image": {
-            "link": "https://firebasestorage.googleapis.com/v0/b/akilimali-2fb0e.appspot.com/o/images%2Fbanner-Edu.webp?alt=media&token=7e0ef7e2-6f7a-4890-8035-747b9fe47dd4",
+            "link": "https://firebasestorage.googleapis.com/v0/b/akilimali-2fb0e.appspot.com/o/images%2Fimage-exetat.webp?alt=media&token=abe1ea02-bb85-4f5c-9885-a4d17e9e37a6",
             "caption":"Bonjour 👋🏾, je suis EDUCBOT 🤖. Comment puis-je vous aider ?"
         }        
     });
