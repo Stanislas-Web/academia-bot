@@ -1374,7 +1374,7 @@ function SampleImageDescription(number){
         "to": number,
         "type": "image",  
         "image": {
-            "link": "https://res.cloudinary.com/deb9kfhnx/image/upload/v1731178796/hpm5gei08mgln8xvkidf.webp",
+            "link": "https://res.cloudinary.com/deb9kfhnx/image/upload/v1731179232/akilimali/wvvwjjzvfqgqxo7ijatz.webp",
             "caption":"Bonjour 👋🏾, je suis EDUCBOT 🤖. Comment puis-je vous aider ?"
         }        
     });
