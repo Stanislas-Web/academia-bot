@@ -517,30 +517,30 @@ function MessageFAQ(number){
         "interactive": {
           "type": "list",
           "body": {
-            "text": "Cliquez ici pour consulter la FAQ sur nos produits et services. "
+            "text": "Cliquez ici pour sélectionner l'examen à payer." 
           },
           "action": {
-            "button": "Tous les services",
+            "button": "Tous les examens",
             "sections": [
               {
                 "title": "",  // Empty title for sections
                 "rows": [
                   {
                     "id": "001",
-                    "title": "Parler à un agent"
+                    "title": "EXETAT"
                   },
                   {
                     "id": "002",
-                    "title": "Tac Étudiant"
+                    "title": "TENASOSP"
                   },
-                  {
-                    "id": "003",
-                    "title": "Tac Inter-urbain"
-                  },
-                  {
-                    "id": "004",
-                    "title": "Tac Kelasi"
-                  },
+                //   {
+                //     "id": "003",
+                //     "title": "Tac Inter-urbain"
+                //   },
+                //   {
+                //     "id": "004",
+                //     "title": "Tac Kelasi"
+                //   },
                   
                 ]
               }
@@ -558,8 +558,8 @@ function SampleImageDescription(number){
         "to": number,
         "type": "image",  
         "image": {
-            "link": "https://res.cloudinary.com/deb9kfhnx/image/upload/v1713534008/fc3l562tvcvmbn1hiz8l.jpg",
-            "caption":"Bonjour 👋🏾, je suis Tac-chatbot 🤖 \ncomment puis-je vous assister aujourd'hui ?"
+            "link": "https://firebasestorage.googleapis.com/v0/b/akilimali-2fb0e.appspot.com/o/exetat.webp?alt=media&token=9d66557b-d4a5-4273-9cd3-75fa2541e9e7",
+            "caption":"Bonjour 👋🏾, je suis EDUCBOT 🤖 \ncomment puis-je vous assister aujourd'hui ?"
         }        
     });
     return data;
