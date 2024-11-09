@@ -558,8 +558,8 @@ function SampleImageDescription(number){
         "to": number,
         "type": "image",  
         "image": {
-            "link": "https://firebasestorage.googleapis.com/v0/b/akilimali-2fb0e.appspot.com/o/images%2FFB_IMG_1635405748224.jpg?alt=media&token=41e29c5d-5ad4-4204-8e5f-d3ca4c25e370",
-            "caption":"Bonjour 👋🏾, je suis EDUCBOT 🤖"
+            "link": "https://firebasestorage.googleapis.com/v0/b/akilimali-2fb0e.appspot.com/o/images%2Fexetat%20(1).webp?alt=media&token=df2b4980-6e68-4d05-a69b-83e609a59bae",
+            "caption":"Bonjour 👋🏾, je suis EDUCBOT 🤖. Comment puis-je vous aider ?"
         }        
     });
     return data;
