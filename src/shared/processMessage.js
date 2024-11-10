@@ -758,7 +758,7 @@ async function Process(textUser, number) {
             whatsappService.SendMessageWhatsApp(mode3);
         }, 1000); // ajustez le délai selon vos besoins
     }
-    else if (textUser.toLowerCase().includes("examen d'etat")) {
+    else if (textUser.toLowerCase().includes("examen d’etat")) {
 
         const mode4 = whatsappModel.ListExetat(number);
         whatsappService.SendMessageWhatsApp(mode4);
