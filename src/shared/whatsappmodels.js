@@ -1334,10 +1334,10 @@ function MessageFAQ(number){
         "interactive": {
           "type": "list",
           "body": {
-            "text": "Cliquez ici pour sélectionner." 
+            "text": "Cliquez ici pour sélectionner l'examen à payer." 
           },
           "action": {
-            "button": "Liste des types d'examens",
+            "button": "Liste",
             "sections": [
               {
                 "title": "",  // Empty title for sections
