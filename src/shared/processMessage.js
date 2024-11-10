@@ -785,7 +785,7 @@ async function Process(textUser, number) {
 
     else if (textUser.toLowerCase().includes("paiement par élève")) {
 
-        const modelAgentMessage1 = whatsappModel.MessageText("Mettez votre code :", number);
+        const modelAgentMessage1 = whatsappModel.MessageText("Entrez votre code :", number);
         models.push(modelAgentMessage1);
 
     } else if (textUser.toLowerCase().includes("tac étudiant")) {
