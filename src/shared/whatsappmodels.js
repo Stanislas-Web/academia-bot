@@ -1408,14 +1408,14 @@ function ListHorsSession(number){
             "text": "Cliquez ici pour sélectionner l'action pour l'Hors Session." 
           },
           "action": {
-            "button": "Menu : Hors session",
+            "button": "Hors session",
             "sections": [
               {
                 "title": "",  // Empty title for sections
                 "rows": [
                   {
                     "id": "001",
-                    "title": "Paiement par Élève (10 000 FC)"
+                    "title": "Paiement par Élève"
                   },
                   {
                     "id": "002",
