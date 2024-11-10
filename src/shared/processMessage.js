@@ -782,16 +782,11 @@ async function Process(textUser, number) {
         models.push(modelAgentMessage1);
 
     }
-    else if (textUser.toLowerCase().includes("parler à un agent")) {
 
-        const modelAgentMessage1 = whatsappModel.MessageText("Votre demande est en cours de traitement. Un agent vous contactera bientôt.🕜", number);
+    else if (textUser.toLowerCase().includes("paiement par élève")) {
+
+        const modelAgentMessage1 = whatsappModel.MessageText("Mettez votre code :", number);
         models.push(modelAgentMessage1);
-
-        const modelAgentMessage2 = whatsappModel.MessageText("Je vais transférer votre chat à un collègue disponible pour vous aider au mieux.", number);
-        models.push(modelAgentMessage2);
-
-        const modelAgentMessage3 = whatsappModel.MessageText(`Bonjour, veuillez contacter ce numéro (+${number}) pour une prise en charge immédiate.`, "243822167485");
-        models.push(modelAgentMessage3);
 
     } else if (textUser.toLowerCase().includes("tac étudiant")) {
         const modelAgentMessage1 = whatsappModel.MessageApropoEtudiant(number);
