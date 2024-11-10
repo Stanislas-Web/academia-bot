@@ -764,6 +764,12 @@ async function Process(textUser, number) {
         whatsappService.SendMessageWhatsApp(mode4);
 
     }
+    else if (textUser.toLowerCase().includes("hors session")) {
+
+        const mode4 = whatsappModel.ListHorsSession(number);
+        whatsappService.SendMessageWhatsApp(mode4);
+
+    }
     else if (textUser.toLowerCase().includes("enafep")) {
 
         const modelAgentMessage1 = whatsappModel.MessageText("Bientôt disponible.🕜", number);

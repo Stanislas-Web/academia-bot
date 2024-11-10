@@ -1334,7 +1334,7 @@ function MessageFAQ(number){
         "interactive": {
           "type": "list",
           "body": {
-            "text": "Cliquez ici pour sélectionner l'examen à payer." 
+            "text": "Cliquez ici pour sélectionner." 
           },
           "action": {
             "button": "Liste des types d'examens",
@@ -1690,7 +1690,8 @@ MessagePaymentQuestion,
 MessageApropoEtudiantInscription,
 ListUniversite,
 SampleQrCode,
-ListExetat
+ListExetat,
+ListHorsSession
 };
 
 
