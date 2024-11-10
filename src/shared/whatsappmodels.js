@@ -1344,20 +1344,16 @@ function MessageFAQ(number){
                 "rows": [
                   {
                     "id": "001",
-                    "title": "EXETAT"
+                    "title": "Examen d’Etat"
                   },
                   {
                     "id": "002",
-                    "title": "TENASOSP"
+                    "title": "⁠ENAFEP"
                   },
-                //   {
-                //     "id": "003",
-                //     "title": "Tac Inter-urbain"
-                //   },
-                //   {
-                //     "id": "004",
-                //     "title": "Tac Kelasi"
-                //   },
+                  {
+                    "id": "003",
+                    "title": "⁠TENASOSP"
+                  }
                   
                 ]
               }
