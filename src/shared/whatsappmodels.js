@@ -1337,7 +1337,7 @@ function MessageFAQ(number){
             "text": "Cliquez ici pour sélectionner l'examen à payer." 
           },
           "action": {
-            "button": "Tous les examens",
+            "button": "Liste des types d'examens",
             "sections": [
               {
                 "title": "",  // Empty title for sections
@@ -1387,10 +1387,45 @@ function ListExetat(number){
                     "id": "002",
                     "title": "Session ordinaire"
                   },
+                  
+                ]
+              }
+            ]
+          }
+        }
+      });
+    return data;
+}
+
+function ListHorsSession(number){
+    const data = JSON.stringify({
+        "messaging_product": "whatsapp",
+        "to": number,
+        "type": "interactive",
+        "interactive": {
+          "type": "list",
+          "body": {
+            "text": "Cliquez ici pour sélectionner l'action pour l'Hors Session." 
+          },
+          "action": {
+            "button": "Menu : Hors session",
+            "sections": [
+              {
+                "title": "",  // Empty title for sections
+                "rows": [
                   {
-                    "id": "003",
-                    "title": "TENASOSP"
-                  }
+                    "id": "001",
+                    "title": "Paiement par Élève (10 000 FC)"
+                  },
+                  {
+                    "id": "002",
+                    "title": "Paiement par école"
+                  },
+                  {
+                    "id": "002",
+                    "title":"Paiement en group (IPP)"
+                  },
+                  
                   
                 ]
               }
