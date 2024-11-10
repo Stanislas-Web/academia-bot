@@ -758,6 +758,24 @@ async function Process(textUser, number) {
             whatsappService.SendMessageWhatsApp(mode3);
         }, 1000); // ajustez le délai selon vos besoins
     }
+    else if (textUser.toLowerCase().includes("exement d'etat")) {
+
+        const mode4 = whatsappModel.ListExetat(number);
+        whatsappService.SendMessageWhatsApp(mode4);
+
+    }
+    else if (textUser.toLowerCase().includes("enafep")) {
+
+        const modelAgentMessage1 = whatsappModel.MessageText("Bientôt disponible.🕜", number);
+        models.push(modelAgentMessage1);
+
+    }
+    else if (textUser.toLowerCase().includes("tenasosp")) {
+
+        const modelAgentMessage1 = whatsappModel.MessageText("Bientôt disponible.🕜", number);
+        models.push(modelAgentMessage1);
+
+    }
     else if (textUser.toLowerCase().includes("parler à un agent")) {
 
         const modelAgentMessage1 = whatsappModel.MessageText("Votre demande est en cours de traitement. Un agent vous contactera bientôt.🕜", number);

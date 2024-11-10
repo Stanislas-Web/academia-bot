@@ -1348,11 +1348,11 @@ function MessageFAQ(number){
                   },
                   {
                     "id": "002",
-                    "title": "⁠ENAFEP"
+                    "title": "ENAFEP"
                   },
                   {
                     "id": "003",
-                    "title": "⁠TENASOSP"
+                    "title": "TENASOSP"
                   }
                   
                 ]
@@ -1363,7 +1363,43 @@ function MessageFAQ(number){
       });
     return data;
 }
-
+function ListExetat(number){
+    const data = JSON.stringify({
+        "messaging_product": "whatsapp",
+        "to": number,
+        "type": "interactive",
+        "interactive": {
+          "type": "list",
+          "body": {
+            "text": "Cliquez ici pour sélectionner l'action pour l'exetat ." 
+          },
+          "action": {
+            "button": "Type examens",
+            "sections": [
+              {
+                "title": "",  // Empty title for sections
+                "rows": [
+                  {
+                    "id": "001",
+                    "title": "Hors session"
+                  },
+                  {
+                    "id": "002",
+                    "title": "Session ordinaire"
+                  },
+                  {
+                    "id": "003",
+                    "title": "TENASOSP"
+                  }
+                  
+                ]
+              }
+            ]
+          }
+        }
+      });
+    return data;
+}
 function SampleImageDescription(number){
     const data = JSON.stringify({
         "messaging_product": "whatsapp",
@@ -1618,7 +1654,8 @@ MessageApropoTacKelasi,
 MessagePaymentQuestion,
 MessageApropoEtudiantInscription,
 ListUniversite,
-SampleQrCode
+SampleQrCode,
+ListExetat
 };
 
 
