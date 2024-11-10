@@ -1374,7 +1374,7 @@ function ListExetat(number){
             "text": "Cliquez ici pour sélectionner l'action pour l'exetat ." 
           },
           "action": {
-            "button": "Type examens",
+            "button": "Examen d’Etat",
             "sections": [
               {
                 "title": "",  // Empty title for sections
