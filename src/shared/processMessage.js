@@ -434,46 +434,41 @@ async function ProcessResto(textUser, number, idNumber, token, numberServer, idR
             whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelAdresse, idNumber, token);
 
             break;
-        // case textUser.includes("Oui"):
+        case textUser.includes("OUI"):
 
-        //     let modelMenuFirst2 = whatsappModel.MenuListResto(number, categoriesData);
-        //     whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMenuFirst2, idNumber, token);
+            const modelMenuFirst2 = whatsappModel.MenuListResto(number, categoriesData);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMenuFirst2, idNumber, token);
+
+            break;
+
+        case textUser.includes("NON"):
+
+            const lukungaFetch = zonesData.filter((zone) => zone.district == "Lukunga");
+            const modelZone2 = whatsappModel.MenuListZone(number, lukungaFetch, "Lukunga");
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelZone2, idNumber, token);
 
 
-
-        //     break;
-
-        // case textUser.includes("non"):
-
-        //     let modelMessagePlace = whatsappModel.MessagePlace(number);
-        //     whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMessagePlace, idNumber, token);
+            const funaFetch = zonesData.filter((zone) => zone.district == "Funa");
+            const modelZone3 = whatsappModel.MenuListZone(number, funaFetch, "Funa");
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelZone3, idNumber, token);
 
 
-        //     break;
+            const MontAmbaFetch = zonesData.filter((zone) => zone.district == "Mont-amba");
+            const modelZone = whatsappModel.MenuListZone(number, MontAmbaFetch, "Mont-amba");
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelZone, idNumber, token);
+
+            const tshanguFetch = zonesData.filter((zone) => zone.district == "Tshangu");
+            const modelZone4 = whatsappModel.MenuListZone(number, tshanguFetch, "Tshangu");
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelZone4, idNumber, token);
+
+
+            break;
         case textUser.includes("Restaurant"):
 
             const modelTable = whatsappModel.MenuListTable(number, tableData);
             whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelTable, idNumber, token);
 
-
-
-
             break;
-        // case textUser.includes("Livraison"):
-
-        //     let modelZone = whatsappModel.MenuListZone(number, zonesData);
-        //     whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelZone, idNumber, token);
-
-
-
-        //     break;
-
-        // case textUser.includes("Non"):
-
-        //     let modelMessagePlace1 = whatsappModel.MessagePlace(number, categoriesData.photoUrl);
-        //     whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMessagePlace1, idNumber, token);
-
-        //     break;
 
         case textUser.includes("🛒"):
 
@@ -550,45 +545,6 @@ async function ProcessResto(textUser, number, idNumber, token, numberServer, idR
 
                         let modelMessagePlace1AutreChose = whatsappModel.MessagePlace(number, categoriesData.photoUrl);
                         whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMessagePlace1AutreChose, idNumber, token);
-            
-
-                        if (textUser.includes("OUI")) {
-                            let modelMenuFirst2 = whatsappModel.MenuListResto(number, categoriesData);
-                            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMenuFirst2, idNumber, token);
-
-                        } 
-                        
-                        if (textUser.includes("NON")) {
-                            const lukungaFetch = zonesData.filter((zone) => zone.district == "Lukunga");
-                            const modelZone2 = whatsappModel.MenuListZone(number, lukungaFetch, "Lukunga");
-                            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelZone2, idNumber, token);
-    
-    
-                            const funaFetch = zonesData.filter((zone) => zone.district == "Funa");
-                            const modelZone3 = whatsappModel.MenuListZone(number, funaFetch, "Funa");
-                            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelZone3, idNumber, token);
-    
-    
-                            const MontAmbaFetch = zonesData.filter((zone) => zone.district == "Mont-amba");
-                            const modelZone = whatsappModel.MenuListZone(number, MontAmbaFetch, "Mont-amba");
-                            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelZone, idNumber, token);
-    
-                            const tshanguFetch = zonesData.filter((zone) => zone.district == "Tshangu");
-                            const modelZone4 = whatsappModel.MenuListZone(number, tshanguFetch, "Tshangu");
-                            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelZone4, idNumber, token);
-
-                        }
-
-
-
-
-
-
-
-
-
-
-
 
 
                     } else {
