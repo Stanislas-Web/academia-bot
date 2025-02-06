@@ -229,7 +229,7 @@ async function ProcessResto(textUser, number, idNumber, token, numberServer, idR
 
     const loadingMessage = "Un instant s'il vous plaît...⏳";
 
-    const helloMessage = `Salut et bienvenue chez *${categoriesData.restoName}* !👋`;
+    const helloMessage = `Salut et bienvenue chez *${categoriesData.restoName}* !👋🏽`;
 
     switch (true) {
         case textUser.toLowerCase().includes("bsr") || textUser.toLowerCase().includes("bonjour") || textUser.toLowerCase().includes("bonsoir") || textUser.toLowerCase().includes("salut") || textUser.toLowerCase().includes("slt") || textUser.toLowerCase().includes("bjr") || textUser.toLowerCase().includes("mbote") || textUser.toLowerCase().includes("hello"):
@@ -316,7 +316,7 @@ async function ProcessResto(textUser, number, idNumber, token, numberServer, idR
                     let totalAmountCdfDelivery = response.data.totalAmountCdfDelivery;
                     let totalAmountUsdDelivery = response.data.totalAmountUsdDelivery;
                     let formatDeliveryCoast = deliveryCoast == 0 ? `` : `*${deliveryCoast}* \$ pour la livraison`;
-                    const formatAdress = response.data.adresse == "null" ?`` : `${response.data.adresse}`;
+                    const formatAdress = response.data.adresse == "null" ? `` : `${response.data.adresse}`;
 
                     let messageFormat = regex.test(response.data.table) ? `Votre commande pour la` : `Votre adresse de livraison est`;
                     let messageFormatServer = regex.test(response.data.table) ? `il y'a une commande pour la` : `il y'a une livraison pour`;
@@ -515,10 +515,6 @@ async function ProcessResto(textUser, number, idNumber, token, numberServer, idR
                         const modelMenuFirst2 = whatsappModel.MenuListResto(number, categoriesData);
                         whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMenuFirst2, idNumber, token);
 
-
-
-
-
                     }
                 })
                 .catch((error) => {
@@ -549,41 +545,35 @@ async function ProcessResto(textUser, number, idNumber, token, numberServer, idR
                     console.log(JSON.stringify(response.data));
 
                     if (response.data.data.modifiedCount == 1) {
+                        ghhggghhhhhhhhhhhhhhhh
+                        const modelMessageAutreChose = whatsappModel.MessageText(`Voulez-vous prendre une autre commande?`, number);
+                        whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMessageAutreChose, idNumber, token);
 
-                        // let modelMessage = whatsappModel.MessageNextCommande(number, categoriesData.photoUrl);
-                        // whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMessage, idNumber, token);
-
-
-                        
-
-
-                        // const zonesGroupedByDistrict = zonesData.reduce((acc, zone) => {
-                        //     const district = zone.district;
-                        //     if (!acc[district]) {
-                        //         acc[district] = [];
-                        //     }
-                        //     acc[district].push(zone);
-                        //     return acc;
-                        // }, {});
-                        
-                        // const districtKeys = Object.keys(zonesGroupedByDistrict);
-                        
-                        // const districtZones = districtKeys.map(district => {
-                        //     return {
-                        //         district: district,
-                        //         zones: zonesGroupedByDistrict[district]
-                        //     };
-                        // });
-                        
+                        if (textUser.includes("OUI")) {
+                            let modelMenuFirst2 = whatsappModel.MenuListResto(number, categoriesData);
+                            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMenuFirst2, idNumber, token);
 
 
-                        // districtZones.forEach(districtZone => {
-                        //     const modelZone = whatsappModel.MenuListZone(number, districtZone.zones);
-                        //     whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelZone, idNumber, token);
-                        // });
-                        
+                        } else if (textUser.includes("NON")) {
+                            const lukungaFetch = zonesData.filter((zone) => zone.district == "Lukunga");
+                            const modelZone2 = whatsappModel.MenuListZone(number, lukungaFetch, "Lukunga");
+                            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelZone2, idNumber, token);
+    
+    
+                            const funaFetch = zonesData.filter((zone) => zone.district == "Funa");
+                            const modelZone3 = whatsappModel.MenuListZone(number, funaFetch, "Funa");
+                            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelZone3, idNumber, token);
+    
+    
+                            const MontAmbaFetch = zonesData.filter((zone) => zone.district == "Mont-amba");
+                            const modelZone = whatsappModel.MenuListZone(number, MontAmbaFetch, "Mont-amba");
+                            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelZone, idNumber, token);
+    
+                            const tshanguFetch = zonesData.filter((zone) => zone.district == "Tshangu");
+                            const modelZone4 = whatsappModel.MenuListZone(number, tshanguFetch, "Tshangu");
+                            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelZone4, idNumber, token);
 
-                        
+                        }
 
 
 
@@ -592,23 +582,7 @@ async function ProcessResto(textUser, number, idNumber, token, numberServer, idR
 
 
 
-                        const lukungaFetch = zonesData.filter((zone)=> zone.district == "Lukunga");
-                        const modelZone2 = whatsappModel.MenuListZone(number, lukungaFetch, "Lukunga");
-                        whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelZone2, idNumber, token);
 
-
-                        const funaFetch = zonesData.filter((zone)=> zone.district == "Funa");
-                        let modelZone3 = whatsappModel.MenuListZone(number, funaFetch, "Funa");
-                        whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelZone3, idNumber, token);
-
-
-                        const MontAmbaFetch = zonesData.filter((zone)=> zone.district == "Mont-amba");
-                        const modelZone = whatsappModel.MenuListZone(number, MontAmbaFetch, "Mont-amba");
-                        whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelZone, idNumber, token);
-
-                        const tshanguFetch = zonesData.filter((zone)=> zone.district == "Tshangu");
-                        const modelZone4 = whatsappModel.MenuListZone(number, tshanguFetch, "Tshangu");
-                        whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelZone4, idNumber, token);
 
 
 
@@ -678,7 +652,7 @@ async function ProcessResto(textUser, number, idNumber, token, numberServer, idR
                         let modelMessage = whatsappModel.MessageText(`Fournissez des informations détaillées sur votre adresse, par exemple : *Q\ Ma Capagne, Av\ nguma, N 129*.`, number);
                         whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMessage, idNumber, token);
 
-                        
+
                     })
                     .catch((error) => {
                         console.log(error);
@@ -712,17 +686,17 @@ async function ProcessResto(textUser, number, idNumber, token, numberServer, idR
 
                             // let modelMessage = whatsappModel.MessageNextCommande(number, categoriesData.photoUrl);
                             // whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMessage, idNumber, token);
-    
+
                             // let modelZone = whatsappModel.MenuListZone(number, zonesData);
                             // whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelZone, idNumber, token);
 
-                        let modelMessagePayment = whatsappModel.MessagePayment(number);
-                        whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMessagePayment, idNumber, token);
-    
+                            let modelMessagePayment = whatsappModel.MessagePayment(number);
+                            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMessagePayment, idNumber, token);
+
                         } else {
                             let modelMessage = whatsappModel.MessageText(`je ne comprends pas`, number);
                             whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMessage, idNumber, token);
-    
+
                         }
 
                     })
