@@ -4,13 +4,13 @@ const FormData = require('form-data');
 
 
 
-async function payment(currency, provider, walletId, abonnement, stdTac) {
+async function payment(currency, provider, walletId, abonnement, phone) {
     try {
         let data = new FormData();
         data.append('currency', currency);
         data.append('provider', provider);
         data.append('walletID', walletId);
-        data.append('etudiantID', stdTac);
+        data.append('etudiantID', 'STDTAC20230330092HFM5UM110173');
         data.append('abonnementID', abonnement);
 
         // data.append('currency', currency);

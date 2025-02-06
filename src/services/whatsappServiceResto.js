@@ -1,12 +1,11 @@
 const fs = require("fs");
 const myConsole = new console.Console(fs.createWriteStream("./logs.txt"));
 const https = require("https");
-function SendMessageWhatsApp(data){
-
+function SendMessageWhatsAppResto(data){
     
     const options = {
         host: "graph.facebook.com",
-        path: "/v21.0/300457023143796/messages",
+        path: "/v18.0/250880504771635/messages",
         method: "POST",
         body: data,
         headers: {
@@ -28,6 +27,34 @@ function SendMessageWhatsApp(data){
     req.end();
 }
 
+
+function SendMessageWhatsAppRestoWithParams(data, idNumber, token){
+    
+    const options = {
+        host: "graph.facebook.com",
+        path: "/v18.0/"+idNumber+"/messages",
+        method: "POST",
+        body: data,
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer "+token
+        }
+    };
+    const req = https.request(options, res => {
+        res.on("data", d=> {
+            process.stdout.write(d);
+        });
+    });
+
+    req.on("error", error => {
+        console.error(error);
+    });
+
+    req.write(data);
+    req.end();
+}
+
 module.exports = {
-    SendMessageWhatsApp
+    SendMessageWhatsAppResto,
+    SendMessageWhatsAppRestoWithParams
 };
