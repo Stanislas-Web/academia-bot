@@ -459,21 +459,21 @@ async function ProcessResto(textUser, number, idNumber, token, numberServer, idR
 
 
             break;
-        case textUser.includes("Livraison"):
+        // case textUser.includes("Livraison"):
 
-            let modelZone = whatsappModel.MenuListZone(number, zonesData);
-            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelZone, idNumber, token);
+        //     let modelZone = whatsappModel.MenuListZone(number, zonesData);
+        //     whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelZone, idNumber, token);
 
 
 
-            break;
+        //     break;
 
-        case textUser.includes("Non"):
+        // case textUser.includes("Non"):
 
-            let modelMessagePlace1 = whatsappModel.MessagePlace(number, categoriesData.photoUrl);
-            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMessagePlace1, idNumber, token);
+        //     let modelMessagePlace1 = whatsappModel.MessagePlace(number, categoriesData.photoUrl);
+        //     whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMessagePlace1, idNumber, token);
 
-            break;
+        //     break;
 
         case textUser.includes("🛒"):
 
