@@ -654,7 +654,7 @@ function MessagePlace(number, image) {
                 }
             },
             "body": {
-                "text": "Préférez-vous être servi au restaurant ou optez-vous pour la livraison en ce moment ?",
+                "text": "Voulez-vous prendre une autre commande?",
             },
             "action": {
                 "buttons": [
@@ -662,14 +662,14 @@ function MessagePlace(number, image) {
                         "type": "reply",
                         "reply": {
                             "id": "001",
-                            "title": "Livraison"
+                            "title": "OUI"
                         }
                     },
                     {
                         "type": "reply",
                         "reply": {
                             "id": "002",
-                            "title": "Restaurant"
+                            "title": "NON"
                         }
                     },
 

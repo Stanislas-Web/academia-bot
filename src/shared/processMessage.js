@@ -434,22 +434,22 @@ async function ProcessResto(textUser, number, idNumber, token, numberServer, idR
             whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelAdresse, idNumber, token);
 
             break;
-        case textUser.includes("Oui"):
+        // case textUser.includes("Oui"):
 
-            let modelMenuFirst2 = whatsappModel.MenuListResto(number, categoriesData);
-            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMenuFirst2, idNumber, token);
-
-
-
-            break;
-
-        case textUser.includes("non"):
-
-            let modelMessagePlace = whatsappModel.MessagePlace(number);
-            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMessagePlace, idNumber, token);
+        //     let modelMenuFirst2 = whatsappModel.MenuListResto(number, categoriesData);
+        //     whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMenuFirst2, idNumber, token);
 
 
-            break;
+
+        //     break;
+
+        // case textUser.includes("non"):
+
+        //     let modelMessagePlace = whatsappModel.MessagePlace(number);
+        //     whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMessagePlace, idNumber, token);
+
+
+        //     break;
         case textUser.includes("Restaurant"):
 
             const modelTable = whatsappModel.MenuListTable(number, tableData);
@@ -545,13 +545,16 @@ async function ProcessResto(textUser, number, idNumber, token, numberServer, idR
                     console.log(JSON.stringify(response.data));
 
                     if (response.data.data.modifiedCount == 1) {
-                        const modelMessageAutreChose = whatsappModel.MessageText(`Voulez-vous prendre une autre commande?`, number);
-                        whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMessageAutreChose, idNumber, token);
+                        // const modelMessageAutreChose = whatsappModel.MessageText(`Voulez-vous prendre une autre commande?`, number);
+                        // whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMessageAutreChose, idNumber, token);
+
+                        let modelMessagePlace1AutreChose = whatsappModel.MessagePlace(number, categoriesData.photoUrl);
+                        whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMessagePlace1AutreChose, idNumber, token);
+            
 
                         if (textUser.includes("OUI")) {
                             let modelMenuFirst2 = whatsappModel.MenuListResto(number, categoriesData);
                             whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMenuFirst2, idNumber, token);
-
 
                         } else if (textUser.includes("NON")) {
                             const lukungaFetch = zonesData.filter((zone) => zone.district == "Lukunga");
