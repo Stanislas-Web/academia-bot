@@ -556,7 +556,9 @@ async function ProcessResto(textUser, number, idNumber, token, numberServer, idR
                             let modelMenuFirst2 = whatsappModel.MenuListResto(number, categoriesData);
                             whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMenuFirst2, idNumber, token);
 
-                        } else if (textUser.includes("NON")) {
+                        } 
+                        
+                        if (textUser.includes("NON")) {
                             const lukungaFetch = zonesData.filter((zone) => zone.district == "Lukunga");
                             const modelZone2 = whatsappModel.MenuListZone(number, lukungaFetch, "Lukunga");
                             whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelZone2, idNumber, token);
