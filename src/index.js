@@ -7,6 +7,6 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-app.use("/restos", apiRoute);
+app.use("/whatsapp", apiRoute);
 
 app.listen(PORT, () => {console.log("port: " + PORT)});
