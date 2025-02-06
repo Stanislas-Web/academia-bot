@@ -545,7 +545,6 @@ async function ProcessResto(textUser, number, idNumber, token, numberServer, idR
                     console.log(JSON.stringify(response.data));
 
                     if (response.data.data.modifiedCount == 1) {
-                        ghhggghhhhhhhhhhhhhhhh
                         const modelMessageAutreChose = whatsappModel.MessageText(`Voulez-vous prendre une autre commande?`, number);
                         whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMessageAutreChose, idNumber, token);
 
