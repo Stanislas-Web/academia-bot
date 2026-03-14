@@ -162,12 +162,10 @@ const ReceivedMessageResto = (req, res) => {
             var number = messages["from"];
             var text = GetTextUser(messages);
             let idNumber = "300457023143796";
-            const idResto = "65dc65cf2ed7f55c4108fdaf";
             let token = "EAALOqv96b5kBQx2EZAKSpSDbDPDJkX5I1iUf9IYwiWrSBB79HbYVniw3lfAZCoDXU80CjYwDqebZAbyaJHb2orP8LbuZB8eoRFS4i3XNayRYF6ZCkIyP6V3gVRCAgriKqfYZChcHwj9OyTCIDatdClxyOSTIZBBePNhkoSdCbURhmnSijlKZBTOWqLKNBKORpI1ZCIZC3I3grKhFV8ezY2NsoNM0lIkH4OhOlmU2RZBZCHoZBjPrwOOBU9du8NzBTQ0kmhtZBkbjlCAUVIhOJeOc4nNffobZCTZC";
-            numberServer ="243826016607";        
             
             if(text != ""){
-                processMessage.ProcessResto(text, number, idNumber, token, numberServer, idResto);
+                processMessage.ProcessChurch(text, number, idNumber, token);
             } 
 
         }        
