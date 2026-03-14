@@ -394,7 +394,7 @@ function getChurchData() {
         facebook: "https://web.facebook.com/Hosannakinshasa/",
         instagram: "https://www.instagram.com/cite_missionnaire_hosanna/",
         themeCulte: "🔥 *Thème actuel :*\n_« Bâtir sur le roc »_\n\nMatthieu 7:24-27\n\n_Celui qui entend mes paroles et les met en pratique est semblable à un homme prudent qui a bâti sa maison sur le roc._",
-        numeroPasteur: "243981776336",
+        numeroPasteur: "243853171743",
         comptesDons: `💰 *Dîmes, Offrandes & Dons*\n\n🏦 *Comptes bancaires Equity :*\n💵 CDF : 077200108382942\n💲 USD : 077200108382943\n\n📱 *M-Pesa :* 0828521215\n📱 *Orange Money :* 0853171743\n\n_Que Dieu vous bénisse pour votre générosité ! 🙏_`
     };
 }
@@ -459,7 +459,7 @@ async function ProcessChurch(textUser, number, idNumber, token) {
 
         // ---- Besoin de prière ----
         case textUser.includes("Besoin de prière"): {
-            let modelText = whatsappModel.MessageText("🙏 *Besoin de prière*\n\nVeuillez nous écrire votre sujet de prière ci-dessous. Notre équipe de prière intercédera pour vous.\n\n_« Ne vous inquiétez de rien, mais en toute chose faites connaître vos besoins à Dieu par des prières... »_ — Philippiens 4:6\n\n📲 Contactez le pasteur directement sur WhatsApp :\nhttps://wa.me/243981776336?text=Bonjour%20pasteur%2C%20j%27ai%20besoin%20de%20votre%20assistance%20en%20pri%C3%A8re", number);
+            let modelText = whatsappModel.MessageText("🙏 *Besoin de prière*\n\nVeuillez nous écrire votre sujet de prière ci-dessous. Notre équipe de prière intercédera pour vous.\n\n_« Ne vous inquiétez de rien, mais en toute chose faites connaître vos besoins à Dieu par des prières... »_ — Philippiens 4:6\n\n📲 Contactez le pasteur directement sur WhatsApp :\nhttps://wa.me/243853171743?text=Bonjour%20pasteur%2C%20j%27ai%20besoin%20de%20votre%20assistance%20en%20pri%C3%A8re", number);
             whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelText, idNumber, token);
 
             // Rediriger le message au pasteur
@@ -470,7 +470,7 @@ async function ProcessChurch(textUser, number, idNumber, token) {
 
         // ---- Problème social ----
         case textUser.includes("Problème social"): {
-            let modelText = whatsappModel.MessageText("🆘 *Assistance sociale*\n\nVeuillez décrire brièvement votre situation ci-dessous. Un responsable de l'église vous contactera pour vous accompagner.\n\n📲 Contactez le pasteur directement sur WhatsApp :\nhttps://wa.me/243981776336?text=Bonjour%20pasteur%2C%20j%27ai%20besoin%20de%20votre%20assistance%20sociale", number);
+            let modelText = whatsappModel.MessageText("🆘 *Assistance sociale*\n\nVeuillez décrire brièvement votre situation ci-dessous. Un responsable de l'église vous contactera pour vous accompagner.\n\n📲 Contactez le pasteur directement sur WhatsApp :\nhttps://wa.me/243853171743?text=Bonjour%20pasteur%2C%20j%27ai%20besoin%20de%20votre%20assistance%20sociale", number);
             whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelText, idNumber, token);
 
             // Rediriger au pasteur
@@ -481,7 +481,7 @@ async function ProcessChurch(textUser, number, idNumber, token) {
 
         // ---- Prendre un RDV ----
         case textUser.includes("Prendre un RDV"): {
-            let modelText = whatsappModel.MessageText("📆 *Prendre un rendez-vous*\n\nVeuillez nous indiquer :\n1️⃣ Votre *nom complet*\n2️⃣ Le *motif* du rendez-vous\n3️⃣ Votre *disponibilité* (jour et heure)\n\nNous vous confirmerons le rendez-vous dans les plus brefs délais.\n\n📲 Ou contactez le pasteur sur WhatsApp :\nhttps://wa.me/243981776336?text=Bonjour%20pasteur%2C%20je%20souhaite%20prendre%20un%20rendez-vous", number);
+            let modelText = whatsappModel.MessageText("📆 *Prendre un rendez-vous*\n\nVeuillez nous indiquer :\n1️⃣ Votre *nom complet*\n2️⃣ Le *motif* du rendez-vous\n3️⃣ Votre *disponibilité* (jour et heure)\n\nNous vous confirmerons le rendez-vous dans les plus brefs délais.\n\n📲 Ou contactez le pasteur sur WhatsApp :\nhttps://wa.me/243853171743?text=Bonjour%20pasteur%2C%20je%20souhaite%20prendre%20un%20rendez-vous", number);
             whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelText, idNumber, token);
 
             // Rediriger au pasteur
