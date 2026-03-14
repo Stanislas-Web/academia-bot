@@ -838,55 +838,55 @@ function ChurchMenuPrincipal(number, churchPhoto) {
         "interactive": {
             "type": "list",
             "body": {
-                "text": "Comment pouvons-nous vous aider aujourd'hui ? ✨"
+                "text": "Comment pouvons-nous vous aider aujourd'hui ?"
             },
             "footer": {
                 "text": "Cité Missionnaire Hosanna"
             },
             "action": {
-                "button": "📋 Menu principal",
+                "button": "Menu principal",
                 "sections": [
                     {
-                        "title": "🙏 Vie spirituelle",
+                        "title": "Vie spirituelle",
                         "rows": [
                             {
                                 "id": "church-programme",
-                                "title": "📅 Programme des cultes",
+                                "title": "Programme des cultes",
                                 "description": "Horaires et jours de culte"
                             },
                             {
                                 "id": "church-theme",
-                                "title": "📖 Thème du culte",
+                                "title": "Thème du culte",
                                 "description": "Thème actuel de l'église"
                             }
                         ]
                     },
                     {
-                        "title": "🤝 Assistance & Services",
+                        "title": "Assistance & Services",
                         "rows": [
                             {
                                 "id": "church-fidele",
-                                "title": "🙋 Demande de fidèle",
+                                "title": "Demande de fidèle",
                                 "description": "Prière, problème social, RDV"
                             },
                             {
                                 "id": "church-don",
-                                "title": "💰 Dons, Dîmes & Offrandes",
+                                "title": "Dons, Dîmes & Offrandes",
                                 "description": "Faire un don ou payer la dîme"
                             }
                         ]
                     },
                     {
-                        "title": "📍 Infos & Contact",
+                        "title": "Infos & Contact",
                         "rows": [
                             {
                                 "id": "church-adresse",
-                                "title": "📍 Adresse de l'église",
+                                "title": "Adresse de l'église",
                                 "description": "Localisation & contact"
                             },
                             {
                                 "id": "church-reseaux",
-                                "title": "🌐 Réseaux sociaux",
+                                "title": "Réseaux sociaux",
                                 "description": "Facebook & Instagram"
                             }
                         ]

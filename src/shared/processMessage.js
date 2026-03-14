@@ -419,6 +419,9 @@ async function ProcessChurch(textUser, number, idNumber, token) {
             let modelHello = whatsappModel.MessageText(helloMessage, number);
             whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelHello, idNumber, token);
 
+            // Petit délai pour que le 1er message arrive avant le menu
+            await new Promise(resolve => setTimeout(resolve, 1500));
+
             let modelMenu = whatsappModel.ChurchMenuPrincipal(number, church.photo);
             whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMenu, idNumber, token);
             break;
