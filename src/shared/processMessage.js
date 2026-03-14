@@ -394,7 +394,7 @@ function getChurchData() {
         facebook: "https://web.facebook.com/Hosannakinshasa/",
         instagram: "https://www.instagram.com/cite_missionnaire_hosanna/",
         themeCulte: "🔥 *Thème actuel :*\n_« Bâtir sur le roc »_\n\nMatthieu 7:24-27\n\n_Celui qui entend mes paroles et les met en pratique est semblable à un homme prudent qui a bâti sa maison sur le roc._",
-        numeroPasteur: "+243981776339",
+        numeroPasteur: "243981776336",
         comptesDons: `💰 *Dîmes, Offrandes & Dons*\n\n🏦 *Comptes bancaires Equity :*\n💵 CDF : 077200108382942\n💲 USD : 077200108382943\n\n📱 *M-Pesa :* 0828521215\n📱 *Orange Money :* 0853171743\n\n_Que Dieu vous bénisse pour votre générosité ! 🙏_`
     };
 }
