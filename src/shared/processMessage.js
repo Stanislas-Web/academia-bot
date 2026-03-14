@@ -17,7 +17,7 @@ async function getCandidatesData() {
 
 async function getCategoriesResto(idResto) {
     try {
-        const response = await axios.get('http://143.110.152.18:8000/api/v1/categories/' + idResto);
+        const response = await axios.get('http://68.183.30.146/api/v1/categories/' + idResto);
         // return response.data.data;
         console.log("load data " + response.data);
         return response.data;
@@ -30,7 +30,7 @@ async function getCategoriesResto(idResto) {
 
 async function getZonesResto(idResto) {
     try {
-        const response = await axios.get('http://143.110.152.18:8000/api/v1/zones/' + idResto);
+        const response = await axios.get('http://68.183.30.146/api/v1/zones/' + idResto);
         return response.data.data;
     } catch (error) {
         console.error('Error fetching candidates data:', error.message);
@@ -40,7 +40,7 @@ async function getZonesResto(idResto) {
 
 async function getTableResto(idResto) {
     try {
-        const response = await axios.get('http://143.110.152.18:8000/api/v1/tables/' + idResto);
+        const response = await axios.get('http://68.183.30.146/api/v1/tables/' + idResto);
         return response.data.data;
     } catch (error) {
         console.error('Error fetching candidates data:', error.message);
@@ -50,7 +50,7 @@ async function getTableResto(idResto) {
 
 async function getPlatsByIdNumberAndCategory(idResto, category) {
     try {
-        const response = await axios.get(`http://143.110.152.18:8000/api/v1/plats/${idResto}/${category}`);
+        const response = await axios.get(`http://68.183.30.146/api/v1/plats/${idResto}/${category}`);
         return response.data.data;
     } catch (error) {
         console.error('Error fetching candidates data:', error.message);
@@ -259,7 +259,7 @@ async function ProcessResto(textUser, number, idNumber, token, numberServer, idR
             let configTable = {
                 method: 'post',
                 maxBodyLength: Infinity,
-                url: 'http://143.110.152.18:8000/api/v1/tables',
+                url: 'http://68.183.30.146/api/v1/tables',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -295,7 +295,7 @@ async function ProcessResto(textUser, number, idNumber, token, numberServer, idR
             let configFinish = {
                 method: 'post',
                 maxBodyLength: Infinity,
-                url: 'http://143.110.152.18:8000/api/v1/finish',
+                url: 'http://68.183.30.146/api/v1/finish',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -331,7 +331,7 @@ async function ProcessResto(textUser, number, idNumber, token, numberServer, idR
 
                     // get PDF from server 
 
-                    let linkPdf = "http://143.110.152.18:8000/api/v1/invoices/" + response.data.pdfPath
+                    let linkPdf = "http://68.183.30.146/api/v1/invoices/" + response.data.pdfPath
 
                     let modelPDF = whatsappModel.InvoiceModel(number, linkPdf);
                     whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelPDF, idNumber, token);
@@ -364,7 +364,7 @@ async function ProcessResto(textUser, number, idNumber, token, numberServer, idR
             let configFinishCarte = {
                 method: 'post',
                 maxBodyLength: Infinity,
-                url: 'http://143.110.152.18:8000/api/v1/finish',
+                url: 'http://68.183.30.146/api/v1/finish',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -398,7 +398,7 @@ async function ProcessResto(textUser, number, idNumber, token, numberServer, idR
 
                     // get PDF from server 
 
-                    let linkPdf = "http://143.110.152.18:8000/api/v1/invoices/" + response.data.pdfPath
+                    let linkPdf = "http://68.183.30.146/api/v1/invoices/" + response.data.pdfPath
 
                     let modelPDF = whatsappModel.InvoiceModel(number, linkPdf);
                     whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelPDF, idNumber, token);
@@ -488,7 +488,7 @@ async function ProcessResto(textUser, number, idNumber, token, numberServer, idR
             let config = {
                 method: 'post',
                 maxBodyLength: Infinity,
-                url: 'http://143.110.152.18:8000/api/v1/orders',
+                url: 'http://68.183.30.146/api/v1/orders',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -528,7 +528,7 @@ async function ProcessResto(textUser, number, idNumber, token, numberServer, idR
             let configRequest = {
                 method: 'post',
                 maxBodyLength: Infinity,
-                url: 'http://143.110.152.18:8000/api/v1/check',
+                url: 'http://68.183.30.146/api/v1/check',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -596,7 +596,7 @@ async function ProcessResto(textUser, number, idNumber, token, numberServer, idR
                 let configRequest = {
                     method: 'post',
                     maxBodyLength: Infinity,
-                    url: 'http://143.110.152.18:8000/api/v1/delivery',
+                    url: 'http://68.183.30.146/api/v1/delivery',
                     headers: {
                         'Content-Type': 'application/json'
                     },
@@ -631,7 +631,7 @@ async function ProcessResto(textUser, number, idNumber, token, numberServer, idR
                 let configRequest = {
                     method: 'post',
                     maxBodyLength: Infinity,
-                    url: 'http://143.110.152.18:8000/api/v1/updatedelivery',
+                    url: 'http://68.183.30.146/api/v1/updatedelivery',
                     headers: {
                         'Content-Type': 'application/json'
                     },
