@@ -232,6 +232,56 @@ const ReceivedMessageRestoBelleKinoise = (req, res) => {
     }
 }
 
+
+const VerifyTokenHosanna = (req, res) => {
+    try {
+        var accessToken = "hosanna";
+        var token = req.query["hub.verify_token"];
+        var challenge = req.query["hub.challenge"];
+
+        console.log("Token from request:", token);
+        console.log("Challenge from request:", challenge);
+
+        if (challenge != null && token != null && token === accessToken) {
+            console.log("Verification successful. Sending challenge...");
+            res.send(challenge);
+        } else {
+            console.log("Verification failed. Sending 400 status.");
+            res.status(400).send();
+        }
+    } catch (e) {
+        console.error("Error in verification:", e);
+        res.status(400).send();
+    }
+}
+
+const ReceivedMessageHosanna = (req, res) => {
+    try {
+        var entry = (req.body["entry"])[0];
+        var changes = (entry["changes"])[0];
+        var value = changes["value"];
+        var messageObject = value["messages"];
+
+        if (typeof messageObject != "undefined") {
+            var messages = messageObject[0];
+            var number = messages["from"];
+            var text = GetTextUser(messages);
+            // TODO: Mettre le vrai idNumber du numéro WhatsApp Business Hosanna
+            let idNumber = "300457023143796";
+            // TODO: Mettre le vrai token WhatsApp Business
+            let token = "EAALOqv96b5kBQx2EZAKSpSDbDPDJkX5I1iUf9IYwiWrSBB79HbYVniw3lfAZCoDXU80CjYwDqebZAbyaJHb2orP8LbuZB8eoRFS4i3XNayRYF6ZCkIyP6V3gVRCAgriKqfYZChcHwj9OyTCIDatdClxyOSTIZBBePNhkoSdCbURhmnSijlKZBTOWqLKNBKORpI1ZCIZC3I3grKhFV8ezY2NsoNM0lIkH4OhOlmU2RZBZCHoZBjPrwOOBU9du8NzBTQ0kmhtZBkbjlCAUVIhOJeOc4nNffobZCTZC";
+
+            if (text != "") {
+                processMessage.ProcessChurch(text, number, idNumber, token);
+            }
+        }
+        res.send("EVENT_RECEIVED");
+    } catch (e) {
+        myConsole.log(e);
+        res.send("EVENT_RECEIVED");
+    }
+}
+
 function GetTextUser(messages){
     var text = "";
     var typeMessge = messages["type"];
@@ -278,5 +328,7 @@ module.exports = {
     VerifyTokenRestoBelleKinoise,
     ReceivedMessageRestoBelleKinoise,
     ReceivedMessageArtcore_matos,
-    VerifyTokenArtcore_matos
+    VerifyTokenArtcore_matos,
+    VerifyTokenHosanna,
+    ReceivedMessageHosanna
 }

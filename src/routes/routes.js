@@ -9,6 +9,8 @@ router
 .post("/bellekinoise", whatsAppController.ReceivedMessageRestoBelleKinoise)
 .get("/artcore", whatsAppController.VerifyTokenArtcore_matos)
 .post("/artcore", whatsAppController.ReceivedMessageArtcore_matos)
+.get("/hosanna", whatsAppController.VerifyTokenHosanna)
+.post("/hosanna", whatsAppController.ReceivedMessageHosanna)
 .post("/messages", whatsAppController.SendMessage)
 
 module.exports = router;

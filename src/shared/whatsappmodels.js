@@ -828,6 +828,159 @@ function MessagePayment(number) {
 
 
 
+// ===================== CHURCH (Hosanna) MODELS =====================
+
+function ChurchMenuPrincipal(number, churchPhoto) {
+    const data = JSON.stringify({
+        "messaging_product": "whatsapp",
+        "to": number,
+        "type": "interactive",
+        "interactive": {
+            "type": "list",
+            "body": {
+                "text": "Comment pouvons-nous vous aider aujourd'hui ? ✨"
+            },
+            "footer": {
+                "text": "Cité Missionnaire Hosanna"
+            },
+            "action": {
+                "button": "📋 Menu principal",
+                "sections": [
+                    {
+                        "title": "🙏 Vie spirituelle",
+                        "rows": [
+                            {
+                                "id": "church-programme",
+                                "title": "📅 Programme des cultes",
+                                "description": "Horaires et jours de culte"
+                            },
+                            {
+                                "id": "church-theme",
+                                "title": "📖 Thème du culte",
+                                "description": "Thème actuel de l'église"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "🤝 Assistance & Services",
+                        "rows": [
+                            {
+                                "id": "church-fidele",
+                                "title": "🙋 Demande de fidèle",
+                                "description": "Prière, problème social, RDV"
+                            },
+                            {
+                                "id": "church-don",
+                                "title": "💰 Dons, Dîmes & Offrandes",
+                                "description": "Faire un don ou payer la dîme"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "📍 Infos & Contact",
+                        "rows": [
+                            {
+                                "id": "church-adresse",
+                                "title": "📍 Adresse de l'église",
+                                "description": "Localisation & contact"
+                            },
+                            {
+                                "id": "church-reseaux",
+                                "title": "🌐 Réseaux sociaux",
+                                "description": "Facebook & Instagram"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    });
+    return data;
+}
+
+function ChurchFideleMenu(number) {
+    const data = JSON.stringify({
+        "messaging_product": "whatsapp",
+        "to": number,
+        "type": "interactive",
+        "interactive": {
+            "type": "button",
+            "body": {
+                "text": "🙋 *Demande de fidèle*\n\nQuel est le motif de votre demande ?"
+            },
+            "action": {
+                "buttons": [
+                    {
+                        "type": "reply",
+                        "reply": {
+                            "id": "fidele-priere",
+                            "title": "🙏 Besoin de prière"
+                        }
+                    },
+                    {
+                        "type": "reply",
+                        "reply": {
+                            "id": "fidele-social",
+                            "title": "🆘 Problème social"
+                        }
+                    },
+                    {
+                        "type": "reply",
+                        "reply": {
+                            "id": "fidele-rdv",
+                            "title": "📆 Prendre un RDV"
+                        }
+                    }
+                ]
+            }
+        }
+    });
+    return data;
+}
+
+function ChurchDonMenu(number) {
+    const data = JSON.stringify({
+        "messaging_product": "whatsapp",
+        "to": number,
+        "type": "interactive",
+        "interactive": {
+            "type": "button",
+            "body": {
+                "text": "💰 *Dons, Dîmes & Offrandes*\n\nQuel type de contribution souhaitez-vous faire ?"
+            },
+            "action": {
+                "buttons": [
+                    {
+                        "type": "reply",
+                        "reply": {
+                            "id": "don-dime",
+                            "title": "💵 Dîme"
+                        }
+                    },
+                    {
+                        "type": "reply",
+                        "reply": {
+                            "id": "don-offrande",
+                            "title": "🎁 Offrande"
+                        }
+                    },
+                    {
+                        "type": "reply",
+                        "reply": {
+                            "id": "don-don",
+                            "title": "❤️ Don"
+                        }
+                    }
+                ]
+            }
+        }
+    });
+    return data;
+}
+
+// ===================== END CHURCH MODELS =====================
+
+
 module.exports = {
     MessageText,
     MessageList,
@@ -850,5 +1003,8 @@ module.exports = {
     MessagePlace,
     MenuListZone,
     MenuListTable,
-    MessagePayment
+    MessagePayment,
+    ChurchMenuPrincipal,
+    ChurchFideleMenu,
+    ChurchDonMenu
 };

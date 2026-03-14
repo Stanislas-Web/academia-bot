@@ -381,8 +381,173 @@ async function ProcessResto(textUser, number, idNumber, token, numberServer, idR
     }
 }
 
+
+// ===================== PROCESS CHURCH (Hosanna) =====================
+
+function getChurchData() {
+    return {
+        name: "Cité Missionnaire Hosanna",
+        photo: "https://instagram.ffih1-2.fna.fbcdn.net/v/t51.2885-19/302202939_1959903961066757_5943645650394218659_n.jpg?stp=dst-jpg_s320x320_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.ffih1-2.fna.fbcdn.net&_nc_cat=105&_nc_oc=Q6cZ2QHiI60HpuuZv5Kq0T8tvX6b6hKd-eckdY4NB_8wFxeN0Ju_uYYREuLxky-MgoSAcNE&_nc_ohc=f-z4o-pg3yIQ7kNvwFNi2Wr&_nc_gid=KtKAfYBkdHFios9Y6RMbBQ&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfyoJXqpJa10EB0oSEXA63BYWeEqanDxI_cTeiI3r29Adw&oe=69BB7677&_nc_sid=8b3546",
+        adresse: "2386 AV.SAÏO, Q/ONL, C/KASA-VUBU",
+        telephone: "0825 607 691",
+        programmeCulte: "https://scontent.ffih1-2.fna.fbcdn.net/v/t39.30808-6/641442997_1328680982621703_8040239652094249634_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=2a1932&_nc_eui2=AeHFBdpQCKfo1nwQdx61vqfi572D7jZPa2fnvYPuNk9rZwyZadcTG4Ra6vxt6_IHz3kU1T6PR5nsJyefRwqiuUmt&_nc_ohc=cusxN-DBDgcQ7kNvwHkgA5M&_nc_oc=AdkHJ4rWa3b4rVpRr7Td8kiV_kYcabewoQMQ7nKuArq5ZIT9SALPwKZ4ARVQaUCiG_k&_nc_zt=23&_nc_ht=scontent.ffih1-2.fna&_nc_gid=PJJWFz_haU1Wmonx3YVsNg&_nc_ss=8&oh=00_Afwf1GmqZ44MLnFR8H8HzY6QtlUFdANx2Hnf7ehZEq24Sg&oe=69BB5BDE",
+        facebook: "https://web.facebook.com/Hosannakinshasa/",
+        instagram: "https://www.instagram.com/cite_missionnaire_hosanna/",
+        themeCulte: "🔥 *Thème actuel :*\n_« Bâtir sur le roc »_\n\nMatthieu 7:24-27\n\n_Celui qui entend mes paroles et les met en pratique est semblable à un homme prudent qui a bâti sa maison sur le roc._",
+        numeroPasteur: "+243981776339",
+        comptesDons: `💰 *Dîmes, Offrandes & Dons*\n\n🏦 *Comptes bancaires Equity :*\n💵 CDF : 077200108382942\n💲 USD : 077200108382943\n\n📱 *M-Pesa :* 0828521215\n📱 *Orange Money :* 0853171743\n\n_Que Dieu vous bénisse pour votre générosité ! 🙏_`
+    };
+}
+
+
+async function ProcessChurch(textUser, number, idNumber, token) {
+
+    const church = getChurchData();
+
+    const helloMessage = `Shalom et bienvenue à la *${church.name}* ! 🙏✨\n\n📍 ${church.adresse}\n📞 ${church.telephone}`;
+
+    const isGreeting = textUser.toLowerCase().includes("bsr") || textUser.toLowerCase().includes("bonjour") ||
+        textUser.toLowerCase().includes("bonsoir") || textUser.toLowerCase().includes("salut") ||
+        textUser.toLowerCase().includes("slt") || textUser.toLowerCase().includes("bjr") ||
+        textUser.toLowerCase().includes("mbote") || textUser.toLowerCase().includes("hello") ||
+        textUser.toLowerCase().includes("shalom");
+
+    switch (true) {
+
+        // ---- Salutations ----
+        case isGreeting: {
+            let modelHello = whatsappModel.MessageText(helloMessage, number);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelHello, idNumber, token);
+
+            let modelMenu = whatsappModel.ChurchMenuPrincipal(number, church.photo);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMenu, idNumber, token);
+            break;
+        }
+
+        // ---- Programme des cultes ----
+        case textUser.includes("Programme des cultes"): {
+            let modelImg = whatsappModel.MessageImage(number, church.programmeCulte);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelImg, idNumber, token);
+
+            let modelText = whatsappModel.MessageText("📅 Voici le programme de nos cultes.\n\n_Venez comme vous êtes, Jésus vous accueille !_ 🕊️", number);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelText, idNumber, token);
+
+            let modelMenu = whatsappModel.ChurchMenuPrincipal(number, church.photo);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMenu, idNumber, token);
+            break;
+        }
+
+        // ---- Thème du culte ----
+        case textUser.includes("Thème du culte"): {
+            let modelTheme = whatsappModel.MessageText(church.themeCulte, number);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelTheme, idNumber, token);
+
+            let modelMenu = whatsappModel.ChurchMenuPrincipal(number, church.photo);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMenu, idNumber, token);
+            break;
+        }
+
+        // ---- Demande de fidèle (sous-menu) ----
+        case textUser.includes("Demande de fidèle"): {
+            let modelFidele = whatsappModel.ChurchFideleMenu(number);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelFidele, idNumber, token);
+            break;
+        }
+
+        // ---- Besoin de prière ----
+        case textUser.includes("Besoin de prière"): {
+            let modelText = whatsappModel.MessageText("🙏 *Besoin de prière*\n\nVeuillez nous écrire votre sujet de prière ci-dessous. Notre équipe de prière intercédera pour vous.\n\n_« Ne vous inquiétez de rien, mais en toute chose faites connaître vos besoins à Dieu par des prières... »_ — Philippiens 4:6\n\n📞 Vous pouvez aussi appeler le *0825 607 691*", number);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelText, idNumber, token);
+
+            // Rediriger le message au pasteur
+            let modelPasteur = whatsappModel.MessageText(`🙏 *Demande de prière*\n\nLe fidèle +${number} a besoin de prière. Veuillez le contacter.`, church.numeroPasteur);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelPasteur, idNumber, token);
+            break;
+        }
+
+        // ---- Problème social ----
+        case textUser.includes("Problème social"): {
+            let modelText = whatsappModel.MessageText("🆘 *Assistance sociale*\n\nVeuillez décrire brièvement votre situation ci-dessous. Un responsable de l'église vous contactera pour vous accompagner.\n\n📞 Contact direct : *0825 607 691*", number);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelText, idNumber, token);
+
+            // Rediriger au pasteur
+            let modelPasteur = whatsappModel.MessageText(`🆘 *Demande d'assistance sociale*\n\nLe fidèle +${number} a un problème social. Veuillez le contacter.`, church.numeroPasteur);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelPasteur, idNumber, token);
+            break;
+        }
+
+        // ---- Prendre un RDV ----
+        case textUser.includes("Prendre un RDV"): {
+            let modelText = whatsappModel.MessageText("📆 *Prendre un rendez-vous*\n\nVeuillez nous indiquer :\n1️⃣ Votre *nom complet*\n2️⃣ Le *motif* du rendez-vous\n3️⃣ Votre *disponibilité* (jour et heure)\n\nNous vous confirmerons le rendez-vous dans les plus brefs délais.\n\n📞 Ou appelez le *0825 607 691*", number);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelText, idNumber, token);
+
+            // Rediriger au pasteur
+            let modelPasteur = whatsappModel.MessageText(`📆 *Demande de RDV*\n\nLe fidèle +${number} souhaite prendre un rendez-vous. Veuillez le contacter.`, church.numeroPasteur);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelPasteur, idNumber, token);
+            break;
+        }
+
+        // ---- Dons, Dîmes & Offrandes (sous-menu) ----
+        case textUser.includes("Dons, Dîmes & Offrandes"): {
+            let modelDon = whatsappModel.ChurchDonMenu(number);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelDon, idNumber, token);
+            break;
+        }
+
+        // ---- Dîme / Offrande / Don (afficher comptes) ----
+        case textUser.includes("Dîme") || textUser.includes("Offrande") || textUser.includes("Don"): {
+            let modelComptes = whatsappModel.MessageText(church.comptesDons, number);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelComptes, idNumber, token);
+
+            let modelMenu = whatsappModel.ChurchMenuPrincipal(number, church.photo);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMenu, idNumber, token);
+            break;
+        }
+
+        // ---- Adresse de l'église ----
+        case textUser.includes("Adresse de l'église"): {
+            let adresseMsg = `📍 *Adresse de l'église*\n\n🏛️ *${church.name}*\n📍 ${church.adresse}\n📞 ${church.telephone}\n\n_Vous êtes les bienvenus ! 🕊️_`;
+            let modelAdresse = whatsappModel.MessageText(adresseMsg, number);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelAdresse, idNumber, token);
+
+            let modelMenu = whatsappModel.ChurchMenuPrincipal(number, church.photo);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMenu, idNumber, token);
+            break;
+        }
+
+        // ---- Réseaux sociaux ----
+        case textUser.includes("Réseaux sociaux"): {
+            let reseauxMsg = `🌐 *Nos réseaux sociaux*\n\n📘 *Facebook :*\n${church.facebook}\n\n📸 *Instagram :*\n${church.instagram}\n\n_Suivez-nous pour rester connecté avec la communauté ! ✨_`;
+            let modelReseaux = whatsappModel.MessageText(reseauxMsg, number);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelReseaux, idNumber, token);
+
+            let modelMenu = whatsappModel.ChurchMenuPrincipal(number, church.photo);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMenu, idNumber, token);
+            break;
+        }
+
+        // ---- Menu / Retour ----
+        case textUser.toLowerCase().includes("menu") || textUser.toLowerCase().includes("retour"): {
+            let modelMenu = whatsappModel.ChurchMenuPrincipal(number, church.photo);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMenu, idNumber, token);
+            break;
+        }
+
+        // ---- Default : message non compris ----
+        default: {
+            let modelDefault = whatsappModel.MessageText("🤔 Je n'ai pas compris votre message.\n\nTapez *menu* pour revenir au menu principal ou sélectionnez une option ci-dessous.", number);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelDefault, idNumber, token);
+
+            let modelMenu = whatsappModel.ChurchMenuPrincipal(number, church.photo);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMenu, idNumber, token);
+            break;
+        }
+    }
+}
+
 module.exports = {
     Process,
     ProcessResto,
+    ProcessChurch,
     OTP
 };
