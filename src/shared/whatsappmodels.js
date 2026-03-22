@@ -877,6 +877,21 @@ function ChurchMenuPrincipal(number, churchPhoto) {
                         ]
                     },
                     {
+                        "title": "Organisations",
+                        "rows": [
+                            {
+                                "id": "church-jeunesse",
+                                "title": "Jeune Missionnaire",
+                                "description": "Jeune Missionnaire pour Christ"
+                            },
+                            {
+                                "id": "church-fevam",
+                                "title": "FEVAM",
+                                "description": "Femmes Vaillantes Missionnaires"
+                            }
+                        ]
+                    },
+                    {
                         "title": "Infos & Contact",
                         "rows": [
                             {
@@ -978,6 +993,72 @@ function ChurchDonMenu(number) {
     return data;
 }
 
+function ChurchJeunesseMenu(number) {
+    const data = JSON.stringify({
+        "messaging_product": "whatsapp",
+        "to": number,
+        "type": "interactive",
+        "interactive": {
+            "type": "button",
+            "body": {
+                "text": "⛪ *Jeune Missionnaire pour Christ*\n\nQue souhaitez-vous faire ?"
+            },
+            "action": {
+                "buttons": [
+                    {
+                        "type": "reply",
+                        "reply": {
+                            "id": "jeunesse-programme",
+                            "title": "📅 Programme"
+                        }
+                    },
+                    {
+                        "type": "reply",
+                        "reply": {
+                            "id": "jeunesse-contact",
+                            "title": "📲 Contacter Président"
+                        }
+                    }
+                ]
+            }
+        }
+    });
+    return data;
+}
+
+function ChurchFevamMenu(number) {
+    const data = JSON.stringify({
+        "messaging_product": "whatsapp",
+        "to": number,
+        "type": "interactive",
+        "interactive": {
+            "type": "button",
+            "body": {
+                "text": "👩‍🤝‍👩 *FEVAM : Femmes Vaillantes Missionnaires*\n\nQue souhaitez-vous faire ?"
+            },
+            "action": {
+                "buttons": [
+                    {
+                        "type": "reply",
+                        "reply": {
+                            "id": "fevam-programme",
+                            "title": "📅 Programme"
+                        }
+                    },
+                    {
+                        "type": "reply",
+                        "reply": {
+                            "id": "fevam-contact",
+                            "title": "📲 Contacter Présidente"
+                        }
+                    }
+                ]
+            }
+        }
+    });
+    return data;
+}
+
 // ===================== END CHURCH MODELS =====================
 
 
@@ -1006,5 +1087,7 @@ module.exports = {
     MessagePayment,
     ChurchMenuPrincipal,
     ChurchFideleMenu,
-    ChurchDonMenu
+    ChurchDonMenu,
+    ChurchJeunesseMenu,
+    ChurchFevamMenu
 };

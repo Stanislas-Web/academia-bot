@@ -395,6 +395,8 @@ function getChurchData() {
         instagram: "https://www.instagram.com/cite_missionnaire_hosanna/",
         themeCulte: "🔥 *Thème actuel :*\n_« Bâtir sur le roc »_\n\nMatthieu 7:24-27\n\n_Celui qui entend mes paroles et les met en pratique est semblable à un homme prudent qui a bâti sa maison sur le roc._",
         numeroPasteur: "243853171743",
+        numeroPresidentJeunesse: "243853171743",
+        numeroPresidenteFevam: "243853171743",
         comptesDons: `💰 *Dîmes, Offrandes & Dons*\n\n🏦 *Comptes bancaires Equity :*\n💵 CDF : 077200108382942\n💲 USD : 077200108382943\n\n📱 *M-Pesa :* 0828521215\n📱 *Orange Money :* 0853171743\n\n_Que Dieu vous bénisse pour votre générosité ! 🙏_`
     };
 }
@@ -494,6 +496,68 @@ async function ProcessChurch(textUser, number, idNumber, token) {
         case textUser.includes("Dons, Dîmes & Offrandes"): {
             let modelDon = whatsappModel.ChurchDonMenu(number);
             whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelDon, idNumber, token);
+            break;
+        }
+
+        // ---- Jeune Missionnaire pour Christ (sous-menu) ----
+        case textUser.includes("Jeune Missionnaire"): {
+            let modelJeunesse = whatsappModel.ChurchJeunesseMenu(number);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelJeunesse, idNumber, token);
+            break;
+        }
+
+        // ---- Programme Jeunesse ----
+        case textUser.includes("Programme") && textUser.includes("Jeunesse") || textUser.includes("jeunesse-programme"): {
+            let modelText = whatsappModel.MessageText("📅 *Programme - Jeune Missionnaire pour Christ*\n\n🗓️ Chaque *Samedi* à *17 heures* au temple de l'église.\n\n_Venez nombreux, la jeunesse est la force de l'église ! 🙏_", number);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelText, idNumber, token);
+
+            let modelMenu = whatsappModel.ChurchMenuPrincipal(number, church.photo);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMenu, idNumber, token);
+            break;
+        }
+
+        // ---- Contacter Président Jeunesse ----
+        case textUser.includes("Contacter Président"): {
+            let modelText = whatsappModel.MessageText("📲 *Contacter le Président de la Jeunesse*\n\nVous pouvez entrer en contact avec le Président de la Jeunesse Missionnaire directement sur WhatsApp :\n\nhttps://wa.me/" + church.numeroPresidentJeunesse + "?text=Bonjour%20Pr%C3%A9sident%2C%20je%20vous%20contacte%20depuis%20le%20bot%20de%20l%27%C3%A9glise\n\n_Que Dieu vous bénisse ! 🙏_", number);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelText, idNumber, token);
+
+            // Notifier le Président
+            let modelPresident = whatsappModel.MessageText(`⛪ *Jeune Missionnaire pour Christ*\n\nLe fidèle +${number} souhaite entrer en contact avec vous.`, church.numeroPresidentJeunesse);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelPresident, idNumber, token);
+
+            let modelMenu = whatsappModel.ChurchMenuPrincipal(number, church.photo);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMenu, idNumber, token);
+            break;
+        }
+
+        // ---- FEVAM (sous-menu) ----
+        case textUser.includes("FEVAM"): {
+            let modelFevam = whatsappModel.ChurchFevamMenu(number);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelFevam, idNumber, token);
+            break;
+        }
+
+        // ---- Programme FEVAM ----
+        case textUser.includes("Programme") && textUser.includes("FEVAM") || textUser.includes("fevam-programme"): {
+            let modelText = whatsappModel.MessageText("📅 *Programme - FEVAM (Femmes Vaillantes Missionnaires)*\n\n🗓️ Chaque *Jeudi* à *17 heures* au temple de l'église.\n\n_Femmes vaillantes, unissons-nous dans la foi ! 🙏_", number);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelText, idNumber, token);
+
+            let modelMenu = whatsappModel.ChurchMenuPrincipal(number, church.photo);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMenu, idNumber, token);
+            break;
+        }
+
+        // ---- Contacter Présidente FEVAM ----
+        case textUser.includes("Contacter Présidente"): {
+            let modelText = whatsappModel.MessageText("📲 *Contacter la Présidente de la FEVAM*\n\nVous pouvez entrer en contact avec la Présidente des Femmes Vaillantes Missionnaires directement sur WhatsApp :\n\nhttps://wa.me/" + church.numeroPresidenteFevam + "?text=Bonjour%20Pr%C3%A9sidente%2C%20je%20vous%20contacte%20depuis%20le%20bot%20de%20l%27%C3%A9glise\n\n_Que Dieu vous bénisse ! 🙏_", number);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelText, idNumber, token);
+
+            // Notifier la Présidente
+            let modelPresidente = whatsappModel.MessageText(`👩‍🤝‍👩 *FEVAM*\n\nLe fidèle +${number} souhaite entrer en contact avec vous.`, church.numeroPresidenteFevam);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelPresidente, idNumber, token);
+
+            let modelMenu = whatsappModel.ChurchMenuPrincipal(number, church.photo);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMenu, idNumber, token);
             break;
         }
 
