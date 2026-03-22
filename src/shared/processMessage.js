@@ -549,6 +549,9 @@ async function ProcessChurch(textUser, number, idNumber, token) {
 
         // ---- Jeune Missionnaire pour Christ (sous-menu depuis liste principale) ----
         case textUser.includes("Jeune Missionnaire"): {
+            let modelImgJeunesse = whatsappModel.MessageImage(number, "https://res.cloudinary.com/deb9kfhnx/image/upload/v1774168338/dgton7bjvjyuu2xzpnhd.jpg");
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelImgJeunesse, idNumber, token);
+
             let modelJeunesse = whatsappModel.ChurchJeunesseMenu(number);
             whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelJeunesse, idNumber, token);
             break;
