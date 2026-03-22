@@ -1009,14 +1009,14 @@ function ChurchJeunesseMenu(number) {
                         "type": "reply",
                         "reply": {
                             "id": "jeunesse-programme",
-                            "title": "📅 Programme"
+                            "title": "📅 Programme JMC"
                         }
                     },
                     {
                         "type": "reply",
                         "reply": {
                             "id": "jeunesse-contact",
-                            "title": "📲 Contacter Président"
+                            "title": "📲 Président JMC"
                         }
                     }
                 ]
@@ -1042,14 +1042,14 @@ function ChurchFevamMenu(number) {
                         "type": "reply",
                         "reply": {
                             "id": "fevam-programme",
-                            "title": "📅 Programme"
+                            "title": "📅 Programme FEVAM"
                         }
                     },
                     {
                         "type": "reply",
                         "reply": {
                             "id": "fevam-contact",
-                            "title": "📲 Contacter Présidente"
+                            "title": "📲 Présidente FEVAM"
                         }
                     }
                 ]

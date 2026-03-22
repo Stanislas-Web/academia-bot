@@ -499,15 +499,8 @@ async function ProcessChurch(textUser, number, idNumber, token) {
             break;
         }
 
-        // ---- Jeune Missionnaire pour Christ (sous-menu) ----
-        case textUser.includes("Jeune Missionnaire"): {
-            let modelJeunesse = whatsappModel.ChurchJeunesseMenu(number);
-            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelJeunesse, idNumber, token);
-            break;
-        }
-
-        // ---- Programme Jeunesse ----
-        case textUser.includes("Programme") && textUser.includes("Jeunesse") || textUser.includes("jeunesse-programme"): {
+        // ---- Programme Jeunesse (bouton "📅 Programme JMC") ----
+        case textUser.includes("Programme JMC"): {
             let modelText = whatsappModel.MessageText("📅 *Programme - Jeune Missionnaire pour Christ*\n\n🗓️ Chaque *Samedi* à *17 heures* au temple de l'église.\n\n_Venez nombreux, la jeunesse est la force de l'église ! 🙏_", number);
             whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelText, idNumber, token);
 
@@ -516,8 +509,8 @@ async function ProcessChurch(textUser, number, idNumber, token) {
             break;
         }
 
-        // ---- Contacter Président Jeunesse ----
-        case textUser.includes("Contacter Président"): {
+        // ---- Contacter Président Jeunesse (bouton "📲 Président JMC") ----
+        case textUser.includes("Président JMC"): {
             let modelText = whatsappModel.MessageText("📲 *Contacter le Président de la Jeunesse*\n\nVous pouvez entrer en contact avec le Président de la Jeunesse Missionnaire directement sur WhatsApp :\n\nhttps://wa.me/" + church.numeroPresidentJeunesse + "?text=Bonjour%20Pr%C3%A9sident%2C%20je%20vous%20contacte%20depuis%20le%20bot%20de%20l%27%C3%A9glise\n\n_Que Dieu vous bénisse ! 🙏_", number);
             whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelText, idNumber, token);
 
@@ -530,15 +523,8 @@ async function ProcessChurch(textUser, number, idNumber, token) {
             break;
         }
 
-        // ---- FEVAM (sous-menu) ----
-        case textUser.includes("FEVAM"): {
-            let modelFevam = whatsappModel.ChurchFevamMenu(number);
-            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelFevam, idNumber, token);
-            break;
-        }
-
-        // ---- Programme FEVAM ----
-        case textUser.includes("Programme") && textUser.includes("FEVAM") || textUser.includes("fevam-programme"): {
+        // ---- Programme FEVAM (bouton "📅 Programme FEVAM") ----
+        case textUser.includes("Programme FEVAM"): {
             let modelText = whatsappModel.MessageText("📅 *Programme - FEVAM (Femmes Vaillantes Missionnaires)*\n\n🗓️ Chaque *Jeudi* à *17 heures* au temple de l'église.\n\n_Femmes vaillantes, unissons-nous dans la foi ! 🙏_", number);
             whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelText, idNumber, token);
 
@@ -547,8 +533,8 @@ async function ProcessChurch(textUser, number, idNumber, token) {
             break;
         }
 
-        // ---- Contacter Présidente FEVAM ----
-        case textUser.includes("Contacter Présidente"): {
+        // ---- Contacter Présidente FEVAM (bouton "📲 Présidente FEVAM") ----
+        case textUser.includes("Présidente FEVAM"): {
             let modelText = whatsappModel.MessageText("📲 *Contacter la Présidente de la FEVAM*\n\nVous pouvez entrer en contact avec la Présidente des Femmes Vaillantes Missionnaires directement sur WhatsApp :\n\nhttps://wa.me/" + church.numeroPresidenteFevam + "?text=Bonjour%20Pr%C3%A9sidente%2C%20je%20vous%20contacte%20depuis%20le%20bot%20de%20l%27%C3%A9glise\n\n_Que Dieu vous bénisse ! 🙏_", number);
             whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelText, idNumber, token);
 
@@ -558,6 +544,20 @@ async function ProcessChurch(textUser, number, idNumber, token) {
 
             let modelMenu = whatsappModel.ChurchMenuPrincipal(number, church.photo);
             whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelMenu, idNumber, token);
+            break;
+        }
+
+        // ---- Jeune Missionnaire pour Christ (sous-menu depuis liste principale) ----
+        case textUser.includes("Jeune Missionnaire"): {
+            let modelJeunesse = whatsappModel.ChurchJeunesseMenu(number);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelJeunesse, idNumber, token);
+            break;
+        }
+
+        // ---- FEVAM (sous-menu depuis liste principale) ----
+        case textUser.includes("FEVAM"): {
+            let modelFevam = whatsappModel.ChurchFevamMenu(number);
+            whatsappServiceResto.SendMessageWhatsAppRestoWithParams(modelFevam, idNumber, token);
             break;
         }
 
