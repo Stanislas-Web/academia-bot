@@ -167,7 +167,8 @@ const ReceivedMessageResto = (req, res) => {
             let token = "EAALOqv96b5kBOyZBK9MAZCF7Ev63btHib6DKyOTudKXvNYFkZBDdYZA6LDE6nssXrTZCEkdLP3hZBRLky3LS4SC5ZByFOtTzXNBVac4SKZCQPIug7YksXgiyeDZAqvGkcusMzz1cDjPPKXNkoVvQ8wrEZA4veGrRIyStcKg7a0MxBD1TE1DRCW76VLJikBEb9DLa8RQYhhKtkn4GWdduA8";
             
             if(text != ""){
-                processMessage.ProcessChurch(text, number, idNumber, token);
+                // processMessage.ProcessChurch(text, number, idNumber, token);
+                processPepele.ProcessPepele(text, number, idNumber, token);
             } 
 
         }        
