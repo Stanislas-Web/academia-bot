@@ -11,7 +11,7 @@ const whatsappServiceResto = require("../services/whatsappServiceResto");
 const sessions = new Map();
 const SESSION_TTL = 5 * 60 * 1000; // 5 minutes
 
-const NUMERO_SUPPORT_TMB = "243826016607"; // TODO: Remplacer par le vrai numéro du support TMB
+const NUMERO_SUPPORT_TMB = "243842613999"; // TODO: Remplacer par le vrai numéro du support TMB
 const TAUX_ANNUEL_CREDIT = 18; // Taux annuel en % pour la simulation
 
 
