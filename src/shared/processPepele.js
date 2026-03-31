@@ -27,7 +27,7 @@ function getAccountData(phoneNumber) {
         soldeCDF: 2847500.00,
         soldeUSD: 1935.50,
         operations: [
-            { date: "30/03/2026", libelle: "Virement entrant — RAWBANK", montant: "+1 200,00 $" },
+            { date: "30/03/2026", libelle: "Virement entrant — Pepele Mobile", montant: "+1 200,00 $" },
             { date: "28/03/2026", libelle: "Paiement Canal+ #4182", montant: "-25,00 $" },
             { date: "25/03/2026", libelle: "Retrait ATM Gombe", montant: "-300,00 $" },
             { date: "22/03/2026", libelle: "Envoi M-Pesa +243812xxxxx", montant: "-150 000 FC" },
@@ -211,12 +211,16 @@ async function ProcessPepele(textUser, number, idNumber, token) {
 
         // ── Salutations ──
         case isGreeting: {
+            let imgWelcome = whatsappModel.MessageImage(number, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRQG7F4XCWrVLuwIEn8kdXx2WoedTlMsam3Q&s");
+            send(imgWelcome, idNumber, token);
+
+            await delay(1000);
+
             let welcome =
-                `*Pepele Bot*\n` +
-                `Trust Merchant Bank\n` +
-                `━━━━━━━━━━━━━━━━━━━━\n\n` +
-                `Bienvenue dans votre espace bancaire.\n\n` +
-                `Consultez vos comptes, effectuez des opérations et accédez à l'ensemble de nos services, directement depuis cette conversation.`;
+                `👋 Bonjour, je suis *PepeleBot*\n` +
+                `Votre assistant bancaire TMB.\n\n` +
+                `💼 Comptes · 💳 Cartes · 💸 Transactions\n` +
+                `📍 ATM · 📊 Crédit · 🤝 Assistance`;
 
             let msg = whatsappModel.MessageText(welcome, number);
             send(msg, idNumber, token);
@@ -415,21 +419,21 @@ async function ProcessPepele(textUser, number, idNumber, token) {
         case textUser.includes("Parler à un conseiller"): {
             // Message au client
             let msg = whatsappModel.MessageText(
-                `*Assistance TMB*\n\n` +
-                `Votre demande a été transmise à un conseiller. Il vous contactera directement sur ce numéro dans les minutes qui suivent.\n\n` +
-                `Vous pouvez également nous joindre :\n` +
-                `  Tel   +243 81 51 51 000\n` +
-                `  Email  clientele@tmb.cd\n\n` +
-                `_Horaires : Lun–Ven 8h00–17h00 · Sam 8h00–12h00_`, number);
+                `🤝 *Assistance TMB*\n\n` +
+                `Merci de nous avoir contacté.\n` +
+                `Un collègue va vous répondre dans peu de temps, restez en ligne.\n\n` +
+                `📞  +243 81 51 51 000\n` +
+                `✉️  clientele@tmb.cd\n\n` +
+                `_Lun–Ven 8h–17h · Sam 8h–12h_`, number);
             send(msg, idNumber, token);
 
-            // Message direct au conseiller sur WhatsApp
+            // Message privé direct au conseiller
             let support = whatsappModel.MessageText(
-                `*Pepele Bot — Escalade client*\n` +
+                `📩 *PepeleBot — Nouveau client en attente*\n` +
                 `━━━━━━━━━━━━━━━━━━━━\n` +
-                `Client   +${number}\n` +
-                `Date     ${new Date().toLocaleDateString('fr-FR')} à ${new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}\n\n` +
-                `Ce client demande à parler à un conseiller.\nVeuillez le contacter.`,
+                `👤 Client : +${number}\n` +
+                `🕐 ${new Date().toLocaleDateString('fr-FR')} à ${new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}\n\n` +
+                `Ce client attend votre réponse sur WhatsApp.`,
                 NUMERO_SUPPORT_TMB);
             send(support, idNumber, token);
 
