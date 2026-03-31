@@ -218,9 +218,7 @@ async function ProcessPepele(textUser, number, idNumber, token) {
 
             let welcome =
                 `👋 Bonjour, je suis *PepeleBot*\n` +
-                `Votre assistant bancaire TMB.\n\n` +
-                `💼 Comptes · 💳 Cartes · 💸 Transactions\n` +
-                `📍 ATM · 📊 Crédit · 🤝 Assistance`;
+                `Votre assistant bancaire PEPELE MOBILE.` 
 
             let msg = whatsappModel.MessageText(welcome, number);
             send(msg, idNumber, token);
