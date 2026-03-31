@@ -12,5 +12,7 @@ router
 .get("/hosanna", whatsAppController.VerifyTokenHosanna)
 .post("/hosanna", whatsAppController.ReceivedMessageHosanna)
 .post("/messages", whatsAppController.SendMessage)
+.get("/pepele", whatsAppController.VerifyTokenPepele)
+.post("/pepele", whatsAppController.ReceivedMessagePepele)
 
 module.exports = router;

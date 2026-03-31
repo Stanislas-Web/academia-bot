@@ -1,6 +1,7 @@
 const fs = require("fs");
 const myConsole = new console.Console(fs.createWriteStream("./logs.txt"));
 const processMessage = require("../shared/processMessage");
+const processPepele = require("../shared/processPepele");
 const { log } = require("console");
 
 const Hello = (req, res) => {
@@ -281,6 +282,49 @@ const ReceivedMessageHosanna = (req, res) => {
     }
 }
 
+const VerifyTokenPepele = (req, res) => {
+    try {
+        var accessToken = "pepele";
+        var token = req.query["hub.verify_token"];
+        var challenge = req.query["hub.challenge"];
+
+        if (challenge != null && token != null && token === accessToken) {
+            res.send(challenge);
+        } else {
+            res.status(400).send();
+        }
+    } catch (e) {
+        console.error("Error in verification:", e);
+        res.status(400).send();
+    }
+}
+
+const ReceivedMessagePepele = (req, res) => {
+    try {
+        var entry = (req.body["entry"])[0];
+        var changes = (entry["changes"])[0];
+        var value = changes["value"];
+        var messageObject = value["messages"];
+
+        if (typeof messageObject != "undefined") {
+            var messages = messageObject[0];
+            var number = messages["from"];
+            var text = GetTextUser(messages);
+            // TODO: Remplacer par les vrais credentials WhatsApp Business de TMB
+            let idNumber = "PEPELE_ID_NUMBER";
+            let token = "PEPELE_TOKEN";
+
+            if (text != "") {
+                processPepele.ProcessPepele(text, number, idNumber, token);
+            }
+        }
+        res.send("EVENT_RECEIVED");
+    } catch (e) {
+        myConsole.log(e);
+        res.send("EVENT_RECEIVED");
+    }
+}
+
 function GetTextUser(messages){
     var text = "";
     var typeMessge = messages["type"];
@@ -329,5 +373,7 @@ module.exports = {
     ReceivedMessageArtcore_matos,
     VerifyTokenArtcore_matos,
     VerifyTokenHosanna,
-    ReceivedMessageHosanna
+    ReceivedMessageHosanna,
+    VerifyTokenPepele,
+    ReceivedMessagePepele
 }
